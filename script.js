@@ -1,5 +1,5 @@
 var ticTacToe = (function() {
-  var gameboard = ['A', '', '', '', '', '', '', '', ''];
+  var gameboard = ['', '', '', '', '', '', '', '', ''];
   var currentPlayer = 'X';
   var isGameOver = false;
 
@@ -14,6 +14,7 @@ var ticTacToe = (function() {
     domElements.gameBoard = document.getElementById('gameBoard');
     domElements.cells = document.querySelectorAll('.cell');
     domElements.currentTurn = document.getElementById('currentTurn');
+    domElements.resetButton = document.getElementById('resetButton');
   };
 
   const init = () => {
@@ -26,6 +27,7 @@ var ticTacToe = (function() {
     gameboard.forEach((cell, index) => {
       domElements.cells[index].textContent = cell;
     });
+    domElements.currentTurn.textContent = currentPlayer;
   };
 
   const bindEvents = () => {
@@ -40,11 +42,19 @@ var ticTacToe = (function() {
         }
       });
     });
-  }
+    domElements.resetButton.addEventListener('click', function() {
+      gameboard.forEach((cell, index) => {
+        gameboard[index] = "";
+      });
+      currentPlayer = "X";
+      render();
+    })
+  };
 
   const checkGameOver = () => {
     isGameOver = gameboard.every(cell => cell !== '');
-  }
+  };
+
 
   return {
     init,
