@@ -1,0 +1,86 @@
+:root {
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+
+  --bg-color: var(--zinc-800);
+  --fg-color: var(--zinc-300);
+}
+
+
+* {
+  font-family: system-ui, sans-serif;
+  color: var(--fg-color);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: var(--bg-color);
+  display: grid;
+  grid-template-rows: 100px 1fr;
+}
+
+header {
+  padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  height: 100%;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 16px;
+}
+
+main>#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
+}
+
+main>section#gameBoard>.cell {
+  padding: 8px;
+
+
+  font-size: 200px;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main>section#gameBoard>.cell:nth-child(3n + 1),
+main>section#gameBoard>.cell:nth-child(3n + 2) {
+  border-right: 4px solid var(--fg-color);
+}
+
+main>section#gameBoard>.cell:nth-child(-n + 6) {
+  border-bottom: 4px solid var(--fg-color);
+}
