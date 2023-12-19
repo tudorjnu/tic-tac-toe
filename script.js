@@ -56,6 +56,7 @@ var ticTacToe = (function() {
         }
       });
     });
+
     domElements.resetButton.addEventListener('click', function() {
       gameboard.forEach((cell, index) => {
         gameboard[index] = "";
@@ -63,12 +64,16 @@ var ticTacToe = (function() {
       currentPlayer = "X";
       render();
     })
+
     domElements.gameResultModalClose.addEventListener('click', function() {
-      domElements.gameResultModal.style.display = 'none';
+      domElements.gameResultModal.style.display = "none";
+      resetGame();
     })
+
     window.onclick = function(event) {
       if (event.target == domElements.gameResultModal) {
         domElements.gameResultModal.style.display = "none";
+        resetGame();
       }
     }
   };
@@ -97,25 +102,36 @@ var ticTacToe = (function() {
 
     if (gameboard.every(cell => cell !== '')) {
       gameScore.ties += 1;
-      openModal();
+      openModal('');
       isGameOver = true;
     }
     isGameOver = false;
   };
 
   const openModal = (result) => {
+    let resultText = '';
     switch (result) {
       case 'X':
-        domElements.gameResultModal.innerText = 'Player X Won!'
+        resultText = 'X Won!';
         break;
       case 'O':
-        domElements.gameResultModal.innerText = 'Player O Won!'
+        resultText = 'O Won!';
         break;
       default:
-        domElements.gameResultModal.innerText = 'Tie!'
+        resultText = 'Tie!';
     }
+    document.getElementById('gameResultText').innerText = resultText;
     domElements.gameResultModal.style.display = 'block';
   }
+
+  const resetGame = () => {
+    gameboard.forEach((cell, index) => {
+      gameboard[index] = '';
+    })
+    currentPlayer = 'X';
+    render();
+  }
+
   return {
     init,
   };
