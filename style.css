@@ -75,6 +75,7 @@ main {
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 32px;
 }
 
@@ -110,7 +111,7 @@ main {
   padding: 8px;
 
   font-size: 200px;
-  font-weight: 800;
+  font-weight: 500;
 
   display: flex;
   justify-content: center;
@@ -124,4 +125,58 @@ main {
 
 #gameBoard>.cell:nth-child(-n + 6) {
   border-bottom: 4px solid var(--fg-color);
+}
+
+.gameScore {
+  width: 600px;
+
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gameScore>div {
+  padding: 4px;
+}
+
+/* The Modal (background) */
+.modal#gameResultModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+/* Modal Content */
+.modalContent {
+  background-color: var(--zinc-300);
+  margin: 50% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeButton {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

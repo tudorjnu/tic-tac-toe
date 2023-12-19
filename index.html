@@ -16,7 +16,7 @@
   </header>
   <main>
     <div class="gameContainer">
-      <header class="gameHeader">
+      <section class="gameHeader">
         <section class="gameInfo">
           <div id="gameStatus">
             <h2>Turn: <span id="currentTurn">X</span></h2>
@@ -26,7 +26,7 @@
           <button id="resetButton" class="material-symbols-rounded gameControls"
             aria-label="Reset Board">restart_alt</button>
         </section>
-      </header>
+      </section>
       <section id="gameBoard">
         <div class="cell" data-cell-index="0">A</div>
         <div class="cell" data-cell-index="1"></div>
@@ -38,9 +38,25 @@
         <div class="cell" data-cell-index="7"></div>
         <div class="cell" data-cell-index="8"></div>
       </section>
+      <section class="gameScore">
+        <div>
+          <span>Player 1:</span> <span id="playerOneScore">0</span>
+        </div>
+        <div>
+          <span>Ties:</span> <span id="ties">0</span>
+        </div>
+        <div>
+          <span>Player 1:</span> <span id="playerTwoScore">0</span>
+        </div>
+      </section>
     </div>
   </main>
-
+  <div id="gameResultModal" class="modal">
+    <div class="modalContent">
+      <span class="closeButton" id="gameResultModalClose">×</span>
+      <p id="gameResultText">Player X won!</p>
+    </div>
+  </div>
 </body>
 <script src="script.js"></script>
 
