@@ -144,6 +144,8 @@ main {
   padding: 4px;
 }
 
+
+
 .modal {
   display: none;
   position: fixed;
@@ -159,7 +161,7 @@ main {
 
 .modalContent {
   background-color: var(--zinc-800);
-  margin: 50% auto;
+  margin: 20% auto;
   padding: 20px;
   border: none;
   width: 200px;
