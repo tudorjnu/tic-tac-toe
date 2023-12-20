@@ -24,9 +24,11 @@ var ticTacToe = (function() {
     domElements.playerOneScore = document.getElementById('playerOneScore');
     domElements.playerTwoScore = document.getElementById('playerTwoScore');
     domElements.ties = document.getElementById('ties');
-    domElements.gameResultModal = document.getElementById('gameResultModal');
-    domElements.gameResultModalClose = document.getElementById('gameResultModalClose');
-    domElements.gameResultText = document.getElementById('gameResultText');
+    domElements.gameResult = {
+      modal: document.getElementById('gameResultModal'),
+      modalClose: document.getElementById('gameResultModalClose'),
+      modalResultText: document.getElementById('gameResultText'),
+    }
   };
 
   const init = () => {
@@ -65,14 +67,14 @@ var ticTacToe = (function() {
       render();
     })
 
-    domElements.gameResultModalClose.addEventListener('click', function() {
-      domElements.gameResultModal.style.display = "none";
+    domElements.gameResult.modalClose.addEventListener('click', function() {
+      domElements.gameResult.modal.style.display = "none";
       resetGame();
     })
 
     window.onclick = function(event) {
-      if (event.target == domElements.gameResultModal) {
-        domElements.gameResultModal.style.display = "none";
+      if (event.target == domElements.gameResult.modal) {
+        domElements.gameResult.modal.style.display = "none";
         resetGame();
       }
     }
@@ -120,8 +122,8 @@ var ticTacToe = (function() {
       default:
         resultText = 'Tie!';
     }
-    document.getElementById('gameResultText').innerText = resultText;
-    domElements.gameResultModal.style.display = 'block';
+    domElements.gameResult.modalResultText.innerText = resultText;
+    domElements.gameResult.modal.style.display = 'block';
   }
 
   const resetGame = () => {
